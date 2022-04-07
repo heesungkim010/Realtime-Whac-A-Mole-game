@@ -1,5 +1,11 @@
-body {
-    background-color: #f5f5f5;
+.game-map {
+  display: grid;
+  grid-template-columns:  repeat(3, 300px)
+}
+.game-map .item {
+  border-style: solid;
+  border-color: black;
+  aspect-ratio: 1;
 }
 
 #main-content {

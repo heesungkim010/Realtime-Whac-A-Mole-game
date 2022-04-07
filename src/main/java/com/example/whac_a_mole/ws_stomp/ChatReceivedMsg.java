@@ -6,11 +6,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ChatReceivedMsg {
+    private String userId;
     private String content;
 
     public ChatReceivedMsg() {
     }
-    public ChatReceivedMsg(String content) {
+    public ChatReceivedMsg(String userId, String content) {
+        this.userId = userId;
         this.content = content;
     }
 

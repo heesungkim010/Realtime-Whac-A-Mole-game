@@ -18,16 +18,13 @@ public class LoginController {
     private final MemberRepository memberRepository;
 
     @PostMapping("/api/members/login")
-    public LoginMemberResponse loginMember(@RequestBody CreateMemberRequest request,
-                                           HttpServletRequest servletRequest){ // request received
-        log.info("userId : {}",request.userId);
+    public LoginMemberResponse loginMember(@RequestBody CreateMemberRequest request
+                                           ){ // request received
         boolean isLoginSuccess = memberRepository.saveMember(request.userId);
 
         if (isLoginSuccess){ // login success.
             //if login success, set session.
-            HttpSession session = servletRequest.getSession(true);
-            session.setAttribute(SessionConst.LOGIN_MEMBER, request.userId);
-            //save session-data
+
             return new LoginMemberResponse(true); //did_login : true
         }
 
