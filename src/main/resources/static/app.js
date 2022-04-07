@@ -29,10 +29,9 @@ function disconnect() {
     console.log("Disconnected");
 }
 
-function sendName() {
-    console.log("sendName")
-    stompClient.send("/app/hello", {}, JSON.stringify({'name': $("#name").val()}));
-    document.getElementById('name').value = ''
+function sendContent() {
+    stompClient.send("/app/chat", {}, JSON.stringify({'content':$("#chat-content").val()}));
+    document.getElementById('chat-content').value = ''
     /*
     The sendName() function retrieves the name entered by the user and uses the STOMP client
     to send it to the /app/hello destination (where GreetingController.greeting() will receive it).
@@ -55,5 +54,5 @@ $(function () {
     });
     //$( "#connect" ).click(function() { connect(); });
     $( "#disconnect" ).click(function() { disconnect(); });
-    $( "#send" ).click(function() { sendName(); });
+    $( "#send" ).click(function() { sendContent(); });
 });

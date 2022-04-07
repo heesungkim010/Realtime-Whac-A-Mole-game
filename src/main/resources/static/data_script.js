@@ -31,10 +31,10 @@ async function checkDuplicatesAndNext(url = '', data = {}) {
     //data = {"userId" : document.getElementById("userId").value, "password" : document.getElementById("password").value}
 
     let result = await postData(url = url, data = data);
-    console.log("data", data)
-    console.log("result", result)
 
     if(result.didLogin){
+        const userName = document.getElementById("userId").value;
+        //TODO : USE SESSION
         window.location.href='gamechat.html'
     }else{ // login fail
         //TODO : login fail

@@ -6,20 +6,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.util.HtmlUtils;
 
 @Controller
-public class GreetingController {
+public class ChatController {
 
-    @MessageMapping("/hello")
+    @MessageMapping("/chat")
     @SendTo("/topic/greetings")
-    public Greeting greeting(HelloMessage message) throws Exception {
+    public ChatSendingMsg greeting(ChatReceivedMsg message) throws Exception {
 
-        return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
+        return new ChatSendingMsg(HtmlUtils.htmlEscape(message.getContent()));
     }
 
     @MessageMapping("/bye")
     @SendTo("/topic/greetings")
-    public Greeting greetingBye(HelloMessage message) throws Exception {
+    public ChatSendingMsg greetingBye(ChatReceivedMsg message) throws Exception {
 
-        return new Greeting("Bye, " + HtmlUtils.htmlEscape(message.getName()) + "!");
+        return new ChatSendingMsg("Bye, " + HtmlUtils.htmlEscape(message.getContent()) + "!");
     }
 
 }

@@ -1,13 +1,13 @@
 package com.example.whac_a_mole.ws_stomp;
 
-public class Greeting {
+public class ChatSendingMsg {
 
     private String content;
 
-    public Greeting() {
+    public ChatSendingMsg() {
     }
 
-    public Greeting(String content) {
+    public ChatSendingMsg(String content) {
         this.content = content;
     }
 
