@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Online Whac-A-Mole-game</title>
+    <script src="/data_script.js"></script>
+    <script>
+        const loginUrl = 'http://127.0.0.1:8080/api/members/login'
+    </script>
+</head>
+<body>
+    <h1 id = 'id1'> Welcome To Online Whac-A-Mole-game </h1>
+
+    <div>Type your nickname to use in game</div>
+
+    <input id="userId" placeholder="Type Your Nickname in game">
+
+    <a><button class="button" onclick="checkDuplicatesAndNext(loginUrl,inputToJsonById(['userId']))"> DONE </button></a>
+
+</body>
+</html>
