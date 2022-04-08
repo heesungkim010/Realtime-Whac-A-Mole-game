@@ -1,15 +1,12 @@
-package com.example.whac_a_mole.api;
+package com.game.whac_a_mole.api;
 
-import com.example.whac_a_mole.repository.MemberRepository;
+import com.game.whac_a_mole.repository.MemberRepository;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 @RestController
 @RequiredArgsConstructor

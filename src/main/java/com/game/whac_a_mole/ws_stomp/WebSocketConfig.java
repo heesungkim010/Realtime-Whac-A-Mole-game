@@ -1,4 +1,4 @@
-package com.example.whac_a_mole.ws_stomp;
+package com.game.whac_a_mole.ws_stomp;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

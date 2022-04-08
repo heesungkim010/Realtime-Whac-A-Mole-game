@@ -1,4 +1,4 @@
-package com.example.whac_a_mole.repository;
+package com.game.whac_a_mole.repository;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
