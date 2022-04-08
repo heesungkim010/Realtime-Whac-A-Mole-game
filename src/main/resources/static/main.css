@@ -1,6 +1,6 @@
 .game-map {
   display: grid;
-  grid-template-columns:  repeat(3, 300px)
+  grid-template-columns:  repeat(5, 100px)
 }
 .game-map .item {
   border-style: solid;
