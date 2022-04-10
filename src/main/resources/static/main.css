@@ -1,10 +1,11 @@
 .game-map {
   display: grid;
-  grid-template-columns:  repeat(5, 100px)
+  grid-template-columns:  repeat(5, 150px)
 }
 .game-map .item {
   border-style: solid;
   border-color: black;
+  background-color: #fff;
   aspect-ratio: 1;
 }
 

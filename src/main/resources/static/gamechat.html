@@ -17,32 +17,8 @@
     enabled. Please enable
     Javascript and reload this page!</h2></noscript>
 
-<div class = "game-map">
-    <div class="item">A</div>
-    <div class="item">B</div>
-    <div class="item">C</div>
-    <div class="item">D</div>
-    <div class="item">E</div>
-    <div class="item">F</div>
-    <div class="item">G</div>
-    <div class="item">H</div>
-    <div class="item">I</div>
-    <div class="item">A</div>
-    <div class="item">B</div>
-    <div class="item">C</div>
-    <div class="item">D</div>
-    <div class="item">E</div>
-    <div class="item">F</div>
-    <div class="item">G</div>
-    <div class="item">H</div>
-    <div class="item">I</div>
-    <div class="item">A</div>
-    <div class="item">B</div>
-    <div class="item">C</div>
-    <div class="item">D</div>
-    <div class="item">E</div>
-    <div class="item">F</div>
-    <div class="item">G</div>
+<div class = "game-map" id = "game-map">
+
 </div>
 
 <div id="main-content" class="container">
@@ -65,6 +41,41 @@
 </div>
     <script>
         connect_start()
+
+        let step;
+        for (step = 0; step < 25; step++) {
+            $("#game-map").append("<div class='item' style='background-color: ivory' id ="+ step + ">" +"</div>")
+        }
+
+        $(function () {
+            $( ".item" ).click( function() { checkAndPost('','',this) });
+        });
+
+        async function checkAndPost(url = '', data = {}, cur) {
+            //1. check if current box is colored
+            //2. if colored : post
+            //   else: ignore
+            // Default options are marked with *
+            console.log(cur.id);
+            console.log(cur.style.backgroundColor);
+            cur.style.backgroundColor = "#00FF00";
+
+            const response = await fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'include', // include, *same-origin, omit
+                headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                body: JSON.stringify(data), // body data type must match "Content-Type" header
+            });
+            result = await response.json()
+            return result;
+        }
     </script>
 
 </body>
