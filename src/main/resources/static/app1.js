@@ -3,9 +3,12 @@ var elem = null;
 
 function connect_start() {
     var socket = new SockJS('/gs-guide-websocket');
+    var socketGame = new SockJS('/gs-guide-websocket');
     elem = document.getElementById('chat');
     //e connect() function uses SockJS and stomp.js to open a connection to /gs-guide-websocket
     stompClient = Stomp.over(socket);
+    stompGameClient = Stomp.over(socketGame);
+
     stompClient.connect({}, function (frame) {
         $("#conversation").show();
         //$("#greetings").html("");
@@ -22,6 +25,18 @@ function connect_start() {
             */
         });
     });
+
+    stompGameClient.connect({}, function (frame) {
+        $("#conversation").show();
+        //$("#greetings").html("");
+
+        stompGameClient.subscribe('/topic/greetings_game', function (greeting) {
+            let receivedPayload = JSON.parse(greeting.body).userId +" : " + JSON.parse(greeting.body).content
+
+            showGreeting(receivedPayload);
+        });
+    });
+
 }
 
 function disconnect() {

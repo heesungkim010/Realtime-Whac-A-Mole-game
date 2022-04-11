@@ -20,9 +20,5 @@ public class ChatController{
 
         return new ChatSendingMsg(HtmlUtils.htmlEscape(message.getUserId()),
                HtmlUtils.htmlEscape(message.getContent()));
-
-        //template.convertAndSend("/topic/greetings", new ChatSendingMsg(HtmlUtils.htmlEscape(message.getUserId()),
-        //        HtmlUtils.htmlEscape(message.getContent())));
     }
-
 }

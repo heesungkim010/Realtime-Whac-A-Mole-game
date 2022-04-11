@@ -14,7 +14,7 @@ public class GameController implements Runnable{
 
     public void greeting() throws Exception {
         //broadcast to client at any point.
-        this.template.convertAndSend("/topic/greetings", new ChatSendingMsg("abc", "content"));
+        this.template.convertAndSend("/topic/greetings_game", new ChatSendingMsg("abc", "content"));
     }
 
     @Override
@@ -22,6 +22,7 @@ public class GameController implements Runnable{
         while(true){
             try {
                 System.out.println("hi");
+                Thread.sleep(5000);
                 greeting();
             } catch (Exception e) {
                 e.printStackTrace();
