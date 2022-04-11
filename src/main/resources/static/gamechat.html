@@ -48,7 +48,9 @@
         }
 
         $(function () {
-            $( ".item" ).click( function() { checkAndPost('','',this) });
+            $( ".item" ).click( function() {
+                checkAndPost('','',this)
+            });
         });
 
         async function checkAndPost(url = '', data = {}, cur) {

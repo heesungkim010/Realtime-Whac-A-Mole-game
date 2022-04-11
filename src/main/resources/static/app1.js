@@ -1,5 +1,6 @@
 var stompClient = null;
 var elem = null;
+
 function connect_start() {
     var socket = new SockJS('/gs-guide-websocket');
     elem = document.getElementById('chat');
@@ -11,6 +12,7 @@ function connect_start() {
 
         stompClient.subscribe('/topic/greetings', function (greeting) {
             let receivedPayload = JSON.parse(greeting.body).userId +" : " + JSON.parse(greeting.body).content
+
             showGreeting(receivedPayload);
             /*
             Upon a successful connection, the client subscribes to the
