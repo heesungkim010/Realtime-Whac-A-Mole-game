@@ -1,7 +1,7 @@
 var stompClient = null;
 var elem = null;
 
-function connect_start() {
+function connectStart() {
     var socket = new SockJS('/gs-guide-websocket');
     var socketGame = new SockJS('/gs-guide-websocket');
     elem = document.getElementById('chat');
@@ -27,16 +27,29 @@ function connect_start() {
     });
 
     stompGameClient.connect({}, function (frame) {
-        $("#conversation").show();
-        //$("#greetings").html("");
+        stompGameClient.subscribe('/topic/game', function (greeting) {
+            /*
+                    this.msgType = msgType;
+                    this.gameMapLoc = gameMapLoc;
+                    this.userId = userId;
+            */
+            let jsonBody = JSON.parse(greeting.body)
+            let msgType = jsonBody.msgType
+            let gameMapLoc = jsonBody.gameMapLoc
+            let userId = jsonBody.userId
 
-        stompGameClient.subscribe('/topic/greetings_game', function (greeting) {
-            let receivedPayload = JSON.parse(greeting.body).userId +" : " + JSON.parse(greeting.body).content
+            if(msgType == "start"){
+                document.getElementById(gameMapLoc).style.backgroundColor = "lime";
 
-            showGreeting(receivedPayload);
+            }else if(msgType =="end"){
+                document.getElementById(gameMapLoc).style.backgroundColor = "ivory";
+                document.getElementById(gameMapLoc).innerHTML = "";
+
+            }else { // msgType == "notifyFirstUser"
+                document.getElementById(gameMapLoc).innerHTML = userId;
+            }
         });
     });
-
 }
 
 function disconnect() {
