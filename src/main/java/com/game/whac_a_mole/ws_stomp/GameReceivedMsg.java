@@ -8,6 +8,9 @@ import lombok.Setter;
 public class GameReceivedMsg {
     private String userId;
 
+    public GameReceivedMsg() {
+    }
+
     public GameReceivedMsg(String userId) {
         this.userId = userId;
     }

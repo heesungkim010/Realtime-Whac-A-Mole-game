@@ -7,16 +7,17 @@ function makeMap(){
 
 $(function () {
     $( ".item" ).click( function() {
-        checkAndPost('','',this)
+        checkAndSend(this)
     });
 });
 
-function checkAndPost(url = '', data = {}, cur) {
+function checkAndSend(cur) {
     //1. check if current box is colored
     //2. if colored : post
     //   else: ignore
     // Default options are marked with *
     if(cur.style.backgroundColor == "lime"){ // colored
+        sendGameContent( sessionStorage.getItem('userId')) // needs refactoring
         //send
 
     }else{ // NOT colored!  color : ivory
@@ -24,14 +25,9 @@ function checkAndPost(url = '', data = {}, cur) {
     }
 }
 
-function sendContent() {
+function sendGameContent(userId) {
+    console.log(userId)
+    let payload = {'userId': userId}
 
-    let payload = {'userId': userId,'content':$("#chat-content").val()}
-
-    stompClient.send("/app/chat", {}, JSON.stringify(payload));
-    document.getElementById('chat-content').value = ''
-    /*
-    The sendName() function retrieves the name entered by the user and uses the STOMP client
-    to send it to the /app/hello destination (where GreetingController.greeting() will receive it).
-    */
+    stompClient.send("/app/game", {}, JSON.stringify(payload));
 }
