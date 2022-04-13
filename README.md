@@ -1,6 +1,6 @@
 # Online-Whac-A-Mole-game
 
-Online Whac-A-Mole game with a realtime chatting.
+Online Whac-A-Mole game with a realtime chat.
 
 [description] Multiple users play online Whac-A-Mole game. The very first user who clicked the green-colored button wins the round. The name of the winner appears to all the users.
 
