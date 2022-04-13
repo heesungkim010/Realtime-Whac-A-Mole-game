@@ -10,6 +10,7 @@ import org.springframework.web.util.HtmlUtils;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 @Controller
 @Slf4j
@@ -17,10 +18,15 @@ public class GameController implements Runnable{
 
     private final SimpMessagingTemplate template;
     private Map<String, Boolean> firstArrivalMap;
+    private Random random;
+    private int locNum;
+    private int gameMapBoundNum;
 
     public GameController(SimpMessagingTemplate template) {
         this.template = template;
         this.firstArrivalMap = new HashMap<String, Boolean>();
+        this.random = new Random();
+        this.gameMapBoundNum = 25;
     }
     //TODO: user concurrent hashmap
 
@@ -45,29 +51,28 @@ public class GameController implements Runnable{
 
     public void startRound() throws Exception {
         //broadcast to client at any point.
-        this.template.convertAndSend("/topic/game", new GameSendingMsg("start", 3, "abc"));
+        this.template.convertAndSend("/topic/game", new GameSendingMsg("start", this.locNum, "abc"));
     }
 
     public void endRound() throws Exception {
         //1. re-init hash map
         //2. broadcast to client at any point.
         firstArrivalMap.clear();
-        this.template.convertAndSend("/topic/game", new GameSendingMsg("end", 3, "abc"));
+        this.template.convertAndSend("/topic/game", new GameSendingMsg("end", this.locNum, "abc"));
     }
 
     public void notifyFirst(String userId) throws Exception {
         //broadcast to client at any point.
-        this.template.convertAndSend("/topic/game", new GameSendingMsg("notifyFirstUser", 3, userId));
+        this.template.convertAndSend("/topic/game", new GameSendingMsg("notifyFirstUser", this.locNum, userId));
     }
 
     @Override
     public void run() {
         while(true){
             try {
-                System.out.println("hi");
-                Thread.sleep(3000);
+                locNum = random.nextInt(gameMapBoundNum);
                 startRound();
-                Thread.sleep(3000);
+                Thread.sleep(2000);
                 endRound();
             } catch (Exception e) {
                 e.printStackTrace();

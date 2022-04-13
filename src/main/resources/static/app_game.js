@@ -1,7 +1,7 @@
 function makeMap(){
     let step;
     for (step = 0; step < 25; step++) {
-        $("#game-map").append("<div class='item' style='background-color: ivory' id ="+ step + ">" +"</div>")
+        $("#game-map").append("<div class='item' style='background-color: ivory; font-size: 200%; text-align: center; vertical-align: middle;' id ="+ step + ">" +"</div>")
     }
 }
 
@@ -28,6 +28,5 @@ function checkAndSend(cur) {
 function sendGameContent(userId) {
     console.log(userId)
     let payload = {'userId': userId}
-
     stompClient.send("/app/game", {}, JSON.stringify(payload));
 }
