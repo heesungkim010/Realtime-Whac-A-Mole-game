@@ -15,7 +15,8 @@ Used Java, Spring, STOMP protocol for backend.
 
 Used HTML, CSS, Javascript for frontend.
 
-[TODO]
+
+[In progress]
 
 1. Utilize session to record each user online.
 2. Protect client-side javascript.
