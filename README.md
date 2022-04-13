@@ -10,3 +10,12 @@ Online Whac-A-Mole game with a realtime chatting.
 [description] Users join and chat online.
 
 ![start_and_chat](https://user-images.githubusercontent.com/63962555/163133855-a73f2da0-8892-44b8-8239-88cd22429287.gif)
+
+Used Java, Spring, STOMP protocol for backend.
+Used HTML, CSS, Javascript for frontend.
+
+[TODO]
+
+1. Utilize session to record each users online.
+2. Protect client-side javascript.
+3. Improve frontend design.
