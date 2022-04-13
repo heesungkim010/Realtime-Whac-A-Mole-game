@@ -4,7 +4,7 @@ Online Whac-A-Mole game with a realtime chatting.
 
 [description] Multiple users play online Whac-A-Mole game. The very first user who clicked the green-colored button wins the round. The name of the winner appears to all the users.
 
-![game_ing](https://user-images.githubusercontent.com/63962555/163133910-1f1e5b5a-cf15-425d-af12-131b087f1e61.gif)
+![game_ing](https://user-images.githubusercontent.com/63962555/163139522-13dec8af-f4d1-4089-aecb-0499d29c9ddc.gif)
 
 
 [description] Users join and chat online.
