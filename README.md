@@ -16,6 +16,6 @@ Used HTML, CSS, Javascript for frontend.
 
 [TODO]
 
-1. Utilize session to record each users online.
+1. Utilize session to record each user online.
 2. Protect client-side javascript.
 3. Improve frontend design.
