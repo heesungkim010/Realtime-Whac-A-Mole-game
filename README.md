@@ -22,3 +22,4 @@ Used HTML, CSS, Javascript for frontend.
 1. Utilize session to record each user online.
 2. Protect client-side javascript.
 3. Improve frontend design.
+4. Make distinct game spaces so that a player can choose which to enter.
