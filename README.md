@@ -12,6 +12,7 @@ Online Whac-A-Mole game with a realtime chatting.
 ![start_and_chat](https://user-images.githubusercontent.com/63962555/163133855-a73f2da0-8892-44b8-8239-88cd22429287.gif)
 
 Used Java, Spring, STOMP protocol for backend.
+
 Used HTML, CSS, Javascript for frontend.
 
 [TODO]
