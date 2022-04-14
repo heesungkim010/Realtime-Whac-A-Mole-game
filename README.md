@@ -1,8 +1,8 @@
-# Online-Whac-A-Mole-game
+# Realtime-Whac-A-Mole-game
 
-Online Whac-A-Mole game with a realtime chat.
+Realtime Whac-A-Mole game with a chat.
 
-[description] Users join and chat online.
+[description] Users join and chat realtime.
 
 ![start_and_chat](https://user-images.githubusercontent.com/63962555/163133855-a73f2da0-8892-44b8-8239-88cd22429287.gif)
 
